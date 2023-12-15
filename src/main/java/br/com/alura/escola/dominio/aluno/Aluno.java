@@ -3,6 +3,7 @@ package br.com.alura.escola.dominio.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
+//AGGREGATE ROOT
 public class Aluno {
 	
 	private CPF cpf;
@@ -21,6 +22,9 @@ public class Aluno {
 	}
 
 	public void adicionarTelefone(String ddd, String numero) {
+		if(telefones.size() == 2) {
+			throw new IllegalArgumentException("Número máximo de telefones permitidos não pode ser maior que 2!");
+		}
 		this.telefones.add(new Telefone(ddd, numero));
 	}
 	
